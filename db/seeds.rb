@@ -13,3 +13,12 @@
 ].each do |attributes|
   Status.find_or_create_by_title(attributes)
 end
+
+[
+	{:title => "To the Hoth Ice Planet"},
+	{:title => "Build the Death Star"},
+	{:title => "Destroy the Death Star"},
+	{:title => "Bake some Cupcakes . . ."},
+].each do |attributes|
+  Project.find_or_create_by_title(attributes)
+end

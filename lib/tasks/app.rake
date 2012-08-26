@@ -1,5 +1,16 @@
 namespace :app do 
 
+task :ensure_development_environment => :environment do
+	if Rails.env.production?
+		raise "\n Can't do that. \n(You are asking me to drop your production database)"
+	end
+end
+
+
+desc "Reset"
+task :reset => [:ensure_development_environment, "db:drop", "db:create", "db:migrate", "db:seed", "app:populate"]
+
+
 desc "Populate the database with development data"
 task :populate => :environment do
 	[
@@ -12,4 +23,7 @@ task :populate => :environment do
 		Person.find_or_create_by_first_name_and_last_name(attributes)
 	end
 end
+
+
+
 end
