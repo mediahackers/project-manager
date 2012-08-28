@@ -6,5 +6,17 @@ module ApplicationHelper
 			url_or_object, options)
 	end
 
+
+	# Return the string first id the passed object is the first in the array
+	#
+	# Used by CSS
+
+	def dom_class_first(object, array)
+		if (object == array.first)
+			return "first"
+		end
+		nil
+	end
+
 end
  
